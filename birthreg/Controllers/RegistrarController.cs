@@ -1,6 +1,7 @@
 ﻿using birthreg.Models;
 using birthreg.Services;
 using birthreg.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -30,12 +31,22 @@ namespace birthreg.Controllers
 
         public async Task<IActionResult> Dashboard()
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             var statistics = await _childService.GetStatistics();   
             return View(statistics);
         }
 
         public async Task<IActionResult> Children(string searchString = "")
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             var children = await _childService.GetChildren(searchString);
             return View(children);
         }
@@ -44,6 +55,11 @@ namespace birthreg.Controllers
         [HttpGet]
         public async Task<IActionResult> AddChild()
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             var parents = await PopulateParentsDropDownList();
             ViewBag.ParentId = new SelectList(parents, "Id", "FamilyName");
             return View();
@@ -66,6 +82,11 @@ namespace birthreg.Controllers
         [HttpGet]
         public IActionResult AddParent()
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             return View();
         }
 
@@ -79,6 +100,11 @@ namespace birthreg.Controllers
         [HttpGet]
         public IActionResult ChangePassword()
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             return View();
         }
 
@@ -99,6 +125,11 @@ namespace birthreg.Controllers
         [HttpGet]
         public IActionResult RetrieveCertificate()
         {
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
             return View();
         }
 

@@ -124,7 +124,11 @@ namespace birthreg
                 }
                 await next();
             });
-
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+                SeedData.Initialize(userManager).GetAwaiter().GetResult();
+            }
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

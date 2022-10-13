@@ -1,4 +1,5 @@
 ﻿using birthreg.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,7 +21,15 @@ namespace birthreg.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var auth = HttpContext.Session.GetString("JWToken");
+            if (string.IsNullOrEmpty(auth))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", "Registrar");
+            }
         }
 
         public IActionResult Privacy()

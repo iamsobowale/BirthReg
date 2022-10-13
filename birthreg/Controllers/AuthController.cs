@@ -1,5 +1,6 @@
 ﻿using birthreg.Models;
 using birthreg.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace birthreg.Controllers
             }
             else
             {
-
+                HttpContext.Session.SetString("JWToken", error);
                 return RedirectToAction("Dashboard", "Registrar");
             }
 
