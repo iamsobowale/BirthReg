@@ -1,0 +1,109 @@
+﻿@model IEnumerable<birthreg.Models.Child>
+
+@{
+    ViewData["Title"] = "Children";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+<h2>Children</h2>
+
+<form asp-action="Children" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" />
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Certificate No
+            </th>
+            <th>
+                Family Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                Nationality
+            </th>
+            <th>
+                Date of Birth
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                Length
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var child in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => child.CertNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.Parent.FamilyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.Weigth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => child.Length)
+            </td>
+            <td>
+                <a asp-action="DeleteChild" asp-route-id="@child.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@*@{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <br />
+
+    <td>
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="@prevDisabled">Previous</a>  |
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="@nextDisabled">Next</a>
+    </td>*@

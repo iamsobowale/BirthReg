@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Birth Reg</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="side-menu navbar-default ">
+        <div class="drop-wrapper">
+            <ul aria-labelledby="dropdownMenuDivider">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="link-text">Dashboard</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a asp-area="" asp-controller="Registrar" asp-action="Dashboard"><span class="glyphicon glyphicon-plus"></span> Registrar Panel</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="link-text">Children</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a asp-area="" asp-controller="Registrar" asp-action="Children"><span class="glyphicon glyphicon-plus"></span> View Children</a>
+                            <a asp-area="" asp-controller="Registrar" asp-action="AddChild"><span class="glyphicon glyphicon-pencil"></span> Register Child</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="link-text">Parents</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a asp-area="" asp-controller="Registrar" asp-action="Parents"><span class="glyphicon glyphicon-plus"></span> View Parents</a>
+                            <a asp-area="" asp-controller="Registrar" asp-action="AddParent"><span class="glyphicon glyphicon-plus"></span> Add Parent</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="link-text">Certificates</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a asp-area="" asp-controller="Registrar" asp-action="RetrieveCertificate"><span class="glyphicon glyphicon-plus"></span> Retrieve Certificate</a>
+                            @*<a asp-area="" asp-controller="Registrar" asp-action="PrintCertificate"><span class="glyphicon glyphicon-plus"></span> Print Certificate</a>*@
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-export"></span>
+                            <span class="link-text">Export</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#"><span class="glyphicon glyphicon-floppy-disk"></span> PDF</a>
+                            <a href="#"><span class="glyphicon glyphicon-share"></span> CSV</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-anchor-link" href="#">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            <span class="link-text">Change Password</span>
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                        </a>
+                        <div class="dropdown-content">
+                            <a asp-area="" asp-controller="Registrar" asp-action="ChangePassword"><span class="glyphicon glyphicon-plus"></span> Change Password</a>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="main-content">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <ul class="nav navbar-default navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hi, Registrar</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="right-body">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

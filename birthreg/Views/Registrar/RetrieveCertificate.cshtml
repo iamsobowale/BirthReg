@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Retrive Certificate";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+}
+@model birthreg.Models.Child
+
+<h2>Retrieve Child Certificate and Details</h2>
+<hr />
+<div class="row flex-fill">
+    <div class="col-md-4">
+        <form asp-action="RetrieveCertificate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Cert No: </label>
+                <input name="certNo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Retrieve" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@{
+    @if(Model != null)
+    {
+
+        <section class="centerize">
+    <main style="max-width: 896px; padding: 48px;">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 48px;
+          gap: 0px;
+        "
+      >
+        <p
+          style="
+            font-size: 30px;
+            font-weight: 600;
+            color: #9ca3af;
+          "
+        >
+          Birth Certificate
+        </p>
+
+         <p style="font-size: 20px; color: #9ca3af">This document acknowledges that</p>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            color: #000000;
+            font-weight: 700;
+            gap: 20px;
+          "
+        >
+          <p style="font-size: 40px; line-height: 1; margin-top: 4px">
+            @Model.FirstName
+          </p>
+          <p style="font-size: 40px; line-height: 1; margin-top: 4px">
+           @Model.LastName
+          </p>
+        </div>
+
+        <p style="font-size: 20px; color: #9ca3af">was born to </p>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            color: #000000;
+            font-weight: 700;
+            gap: 20px;
+            justify-content: space-between;
+          "
+        >
+          <p style="font-size: 25px; line-height: 1; margin-top: 8px">
+            @Model.Parent.FatherName
+          </p>
+          <p style="font-size: 25px; line-height: 1; margin-top: 8px">
+            @Model.Parent.MotherName
+          </p>
+        </div>
+
+        <div
+          style="width: '100%'; display: flex; flex-direction: row; gap: 15px"
+        >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p style="font-size: 14px; color: #9ca3af">Weight:</p>
+            <p style="font-size: 16px; color: #000000">
+              @Model.Weigth
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p style="font-size: 14px; color: #9ca3af">Length: </p>
+            <p style="font-size: 16px; color: #000000">
+              @Model.Length
+            </p>
+          </div>
+      </div>
+      </div>
+
+      <div style="font-weight: 700">
+        <span style="color: #000000">Disclaimer: </span>
+        <span style="color: #9ca3af">
+          This birth was recorded at @Model.DateRegistered , under the state health body supervision.
+        </span>
+      </div>
+    </main>
+
+</section>
+    }
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

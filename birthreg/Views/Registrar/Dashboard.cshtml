@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+}
+@model birthreg.ViewModels.StatisticsViewModel
+
+<div style="display: flex; flex-direction: row; gap: 15px">
+    <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;">
+        <div style="width: 400px; padding: 2px 16px;">
+            <h5 class="card-title">Total Registered Children</h5>
+            <p class="card-text">@Model.TotalChildren</p>
+        </div>
+    </div>
+
+
+    <div style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;">
+        <div style="width: 400px; padding: 2px 16px;">
+            <h5 class="card-title">Total Registered Parents</h5>
+            <p class="card-text">@Model.TotalParent</p>
+        </div>
+    </div>
+</div>
