@@ -64,6 +64,11 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label asp-for="Nationality" class="control-label"></label>
+                        <input asp-for="Nationality" class="form-control" />
+                        <span asp-validation-for="Nationality" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="MidWife" class="control-label"></label>
                         <input asp-for="MidWife" class="form-control" />
                         <span asp-validation-for="MidWife" class="text-danger"></span>

@@ -70,7 +70,7 @@ namespace birthreg.Controllers
         public async Task<IActionResult> AddChild(AddChildViewModel child)
         {
             var newChild = await _childService.AddChild(child);
-            return View(nameof(Children));
+            return RedirectToAction("Children");
         }
 
         public async Task<IActionResult> Parents(string searchString = "")

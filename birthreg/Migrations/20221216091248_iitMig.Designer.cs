@@ -10,8 +10,8 @@ using birthreg.Data;
 namespace birthreg.Migrations
 {
     [DbContext(typeof(BirthContext))]
-    [Migration("20211230193610_intiailMigii")]
-    partial class intiailMigii
+    [Migration("20221216091248_iitMig")]
+    partial class iitMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

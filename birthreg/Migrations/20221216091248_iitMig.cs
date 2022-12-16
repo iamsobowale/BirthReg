@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace birthreg.Migrations
 {
-    public partial class intiailMig : Migration
+    public partial class iitMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,8 +54,11 @@ namespace birthreg.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    FamilyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FatherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MotherName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    MotherName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FatherPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MotherPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
