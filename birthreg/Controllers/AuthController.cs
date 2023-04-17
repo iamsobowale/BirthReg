@@ -44,7 +44,11 @@ namespace birthreg.Controllers
                 HttpContext.Session.SetString("JWToken", error);
                 return RedirectToAction("Dashboard", "Registrar");
             }
-
+        }
+        public async Task<IActionResult> Logout()
+        {
+            HttpContext.Session.Remove("JWToken");
+            return RedirectToAction("Login");
         }
     }
 }

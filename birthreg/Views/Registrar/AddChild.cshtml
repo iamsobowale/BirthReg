@@ -24,9 +24,18 @@
                         <span asp-validation-for="LastName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="State" class="control-label"></label>
-                        <input asp-for="State" class="form-control" />
-                        <span asp-validation-for="State" class="text-danger"></span>
+                        <label asp-for="Nationality" class="control-label">Nationality</label>
+                        <select id="country" name="Nationality" class="form-control m-1 w-100">
+                            <option disabled selected>Select Nationality </option>
+                            <span asp-validation-for="Nationality" class="text-danger"></span>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="State" class="control-label">State</label>
+                        <select id="state" name="State" class="form-control m-1 w-100">
+                            <option value="" disabled selected>Select State </option>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label asp-for="Address" class="control-label"></label>
@@ -49,7 +58,7 @@
                 <div>
                     <div class="form-group">
                         <label asp-for="Weigth" class="control-label"></label>
-                        <input asp-for="Weigth" class="form-control" />
+                        <input asp-for="Weigth" placeholder="In Kg" class="form-control" />
                         <span asp-validation-for="Weigth" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -60,13 +69,7 @@
                     <div class="form-group">
                         <select name="ParentId" class="form-control m-1 w-100" asp-items="ViewBag.ParentId" required>
                             <option value="">Select Parent</option>
-
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Nationality" class="control-label"></label>
-                        <input asp-for="Nationality" class="form-control" />
-                        <span asp-validation-for="Nationality" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="MidWife" class="control-label"></label>
